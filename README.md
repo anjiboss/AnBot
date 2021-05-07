@@ -1,6 +1,7 @@
 # A BASIC DISCORD BOT MADE WITH JAVASCRIPT
 
-##Play Music With The Command:
+## Play Music With The Command:
+
 **!music** + _song's name (Write Artist Name for accurate)_
 **!volup** to raise up the volume
 **!voldown** to low down the volume
