@@ -2,9 +2,9 @@
 
 ## Play Music With The Command:
 
-**!music** + _song's name (Write Artist Name for accurate)_
-**!volup** to raise up the volume
-**!voldown** to low down the volume
+- **!music** + _song's name (Write Artist Name for accurate)_
+- **!volup** to raise up the volume
+- **!voldown** to low down the volume
 
 # Dependencies
 
