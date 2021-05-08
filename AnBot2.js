@@ -1,21 +1,31 @@
 require("dotenv").config();
+//Server
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+//Discord
 const Discord = require("discord.js");
 const client = new Discord.Client();
 new Discord.MessageAttachment();
 const ytDownload = require("ytdl-core");
 const youtubeSearch = require("youtube-search-api");
+// import { command } from "./content";
+const content = require("./content");
 
 // Search Youtube for ID
 const getYoutubeInfo = async (keyword) => {
   console.log(keyword);
   const res = await youtubeSearch.GetListByKeyword(keyword, false);
   // console.log(res.items[0]);
-  console.log(res.items[0].thumbnail.thumbnails[0].url);
   return res.items[0];
 };
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.username}!`);
+});
+client.on("userUpdate", (e) => {
+  console.log(e);
 });
 
 client.on("message", async (msg) => {
@@ -23,7 +33,9 @@ client.on("message", async (msg) => {
     msg.channel.send("!hello");
     msg.channel.send("!inspire");
   }
-
+  if (msg.content == "!help") {
+    msg.channel.send(content.command());
+  }
   if (msg.content.split(" ")[0] === "!music") {
     if (msg.member.voice.channel) {
       let curVol = 0.5;
@@ -94,3 +106,7 @@ client.on("message", async (msg) => {
 });
 
 client.login(process.env.TOKEN);
+
+app.get("/", (req, res) => res.send(`You are home now`));
+
+app.listen(PORT, () => console.log(`Runing on ${PORT}`));
