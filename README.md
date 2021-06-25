@@ -10,7 +10,7 @@
 
 # Dependencies
 
-- discord.js ( ¯\_(ツ)\_/¯)
+- discord.js ( ¯\\_(ツ)\_/¯)
 - @discordjs/opus
 - ffmpeg-static (opus said to add this T_T )
 - **youtube-search-api** (search for video and take the id)
